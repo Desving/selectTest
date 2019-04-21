@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="fancySelect.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>select</title>
+</head>
+<body>
+<form class="form_report ajax-form" method="post" action="">
+    <div class="report_filter">
+        <div class="fields">
+            <div class="field field_type-report">
+                <label class="field_label">Вид отчета</label>
+                <select name="typeReport" id="typeReport">
+                    <option value="min">Минимальный</option>
+                    <option value="mid">Стандартный</option>
+                    <option value="max">Максимальный</option>
+                </select>
+            </div>
+            <div class="field field_type-time">
+                <label for="contactChoice1" class="field_label">Период</label>
+                <div class="date">
+                    <div class="time-buttons">
+                        <div class="time-button" data-period="week">Неделя</div>
+                        <div class="time-button" data-period="month">Месяц</div>
+                        <div class="time-button" data-period="quarter">Квартал</div>
+                    </div>
+                    <div class="date-calendar">
+                        <div class="btn btn-white date-text btn-calendar" onclick="$('#dateFilter').click();">
+                            Выберите период
+                        </div>
+                        <input type="text" id="dateFilter" data-col="1" class="hidden-date" name="dateFilter" value="<?=$arResult['DATE_FILTER']['text']?>"
+                               data-default-from="<?=$arResult['DATE_FILTER']['default_from_text']?>"
+                               data-default-to="<?=$arResult['DATE_FILTER']['default_to_text']?>"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="field field_volume">
+                <label class="field_label">Объем данных</label>
+                <select name="volumeReport" id="volumeReport">
+                    <option value="min">Минимальный</option>
+                    <option value="mid">Стандартный</option>
+                    <option value="max">Максимальный</option>
+                </select>
+            </div>
+        </div>
+        <div class="field field-email">
+            <input type="checkbox" id="emailSend" name="emailSend" value="y">
+            <input type="hidden" name="MANUF_ID" value="TEST">
+            <label class="field_label_email" for="emailSend">Отправить на email</label>
+        </div>
+        <input id="submit_report" type="submit" class="btn btn-purple btn-report" value="Получить отчет"/>
+    </div>
+    <div class="error-text error"></div>
+</form>
+</body>
+<script src="jq.min.js"></script>
+<script src="script.js"></script>
+<script src="fancySelect.js"></script>
+</html>
